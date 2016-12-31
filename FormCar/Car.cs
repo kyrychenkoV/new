@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace FormCar
 {
-	class Car
+	public class Car
 	{
 		public string brandCar;
 		public string modelCar;
 		public string  releaseYear;
 		public string cost;
-	
 	}
 }

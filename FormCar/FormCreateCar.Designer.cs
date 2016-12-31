@@ -34,8 +34,10 @@
 			this.lbModelCar = new System.Windows.Forms.Label();
 			this.tbRelaseYear = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.tbCost = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.btOk = new System.Windows.Forms.Button();
+			this.btClear = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lbBrandCar
@@ -61,7 +63,7 @@
 			this.tbModelCar.Name = "tbModelCar";
 			this.tbModelCar.Size = new System.Drawing.Size(100, 20);
 			this.tbModelCar.TabIndex = 3;
-			this.tbModelCar.TextChanged += new System.EventHandler(this.tbModelCar_TextChanged);
+			
 			// 
 			// lbModelCar
 			// 
@@ -79,6 +81,7 @@
 			this.tbRelaseYear.Size = new System.Drawing.Size(100, 20);
 			this.tbRelaseYear.TabIndex = 5;
 			this.tbRelaseYear.TextChanged += new System.EventHandler(this.tbRelaseYear_TextChanged);
+			this.tbRelaseYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRelaseYear_KeyPress);
 			// 
 			// label2
 			// 
@@ -89,13 +92,13 @@
 			this.label2.TabIndex = 4;
 			this.label2.Text = "Release Year";
 			// 
-			// textBox4
+			// tbCost
 			// 
-			this.textBox4.Location = new System.Drawing.Point(107, 104);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(100, 20);
-			this.textBox4.TabIndex = 7;
-			this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+			this.tbCost.Location = new System.Drawing.Point(107, 104);
+			this.tbCost.Name = "tbCost";
+			this.tbCost.Size = new System.Drawing.Size(100, 20);
+			this.tbCost.TabIndex = 7;
+			this.tbCost.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
 			// 
 			// label3
 			// 
@@ -106,12 +109,34 @@
 			this.label3.TabIndex = 6;
 			this.label3.Text = "Cost";
 			// 
+			// btOk
+			// 
+			this.btOk.Location = new System.Drawing.Point(40, 149);
+			this.btOk.Name = "btOk";
+			this.btOk.Size = new System.Drawing.Size(75, 23);
+			this.btOk.TabIndex = 8;
+			this.btOk.Text = "Ok";
+			this.btOk.UseVisualStyleBackColor = true;
+			this.btOk.Click += new System.EventHandler(this.btOkCreateCar_Click);
+			// 
+			// btClear
+			// 
+			this.btClear.Location = new System.Drawing.Point(132, 149);
+			this.btClear.Name = "btClear";
+			this.btClear.Size = new System.Drawing.Size(75, 23);
+			this.btClear.TabIndex = 9;
+			this.btClear.Text = "Clear";
+			this.btClear.UseVisualStyleBackColor = true;
+			this.btClear.Click += new System.EventHandler(this.btClear_Click);
+			// 
 			// FormCreateCar
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(256, 207);
-			this.Controls.Add(this.textBox4);
+			this.Controls.Add(this.btClear);
+			this.Controls.Add(this.btOk);
+			this.Controls.Add(this.tbCost);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.tbRelaseYear);
 			this.Controls.Add(this.label2);
@@ -134,7 +159,9 @@
 		private System.Windows.Forms.Label lbModelCar;
 		private System.Windows.Forms.TextBox tbRelaseYear;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox tbCost;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button btOk;
+		private System.Windows.Forms.Button btClear;
 	}
 }

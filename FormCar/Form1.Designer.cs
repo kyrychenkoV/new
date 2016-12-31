@@ -62,6 +62,7 @@
 			this.btDeleteCar.TabIndex = 2;
 			this.btDeleteCar.Text = "Delete Car";
 			this.btDeleteCar.UseVisualStyleBackColor = true;
+			this.btDeleteCar.Click += new System.EventHandler(this.btDeleteCar_Click);
 			// 
 			// btExit
 			// 

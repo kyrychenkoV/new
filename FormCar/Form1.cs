@@ -19,32 +19,43 @@ namespace FormCar
 			InitializeComponent();
 
 		}
-		Car car = new Car();
+		
 		List<Car> collection = new List<Car>();
-		FormListView listview = new FormListView();
+		
 
 		private void btCreateCer_Click(object sender, EventArgs e)
 		{
 			FormCreateCar formCar = new FormCreateCar();
 			formCar.ShowDialog();
-
+			Car car = new Car();
 			car.brandCar = formCar.GetTextBoxBrandCar;
 			car.modelCar = formCar.GetTextBoxtbModelCar;
 			car.releaseYear = formCar.GetTextBoxtbRelaseYear;
 			car.cost = formCar.GetTextBoxtbtbCost;
 			collection.Add(car);
-
-			listview.AddCarListView(collection);
+			
+			//listview.AddCarListView(collection);
 		}
 
 		private void btShowCar_Click(object sender, EventArgs e)
 		{
+			FormListView listview = new FormListView();
+			listview.AddCarListView(collection);
 			listview.Show();
 		}
 
 		private void btDeleteCar_Click(object sender, EventArgs e)
 		{
-			collection.RemoveAt(1);
+			FormClear clear=new FormClear();
+			
+			clear.AddComponentComboBox(collection);
+			clear.ShowDialog();
+			collection.RemoveAt(clear.GetIndexComboBox());
+		}
+
+		private void btExit_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

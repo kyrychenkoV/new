@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,31 +22,21 @@ namespace FormCar
 
 		public void AddCarListView(List<Car> collection)
 		{
-
-			ListViewItem m = new ListViewItem((collection.Count).ToString()); //lvShowCar.Items.Count.ToString()
-
-			//lvShowCar.Items.Clear();
+			lvShowCar.Items.Clear();
 			foreach (var number in collection)
 			{
-				m.SubItems.Add(((Car)number).brandCar);
-				m.SubItems.Add(((Car)number).modelCar);
-				m.SubItems.Add(((Car)number).releaseYear);
-				m.SubItems.Add(((Car)number).cost);
-				m.Remove();
+				ListViewItem m = new ListViewItem((lvShowCar.Items.Count + 1).ToString());
 				lvShowCar.Items.Add(m);
-				MessageBox.Show("BRANDCAR" + " " + collection.Count.ToString() + "= " + ((Car)number).brandCar);
+				m.SubItems.Add(((Car)number).brandCar);
+				m.SubItems.Add(number.modelCar);
+				m.SubItems.Add(number.releaseYear);
+				m.SubItems.Add(number.cost);
+
 			}
-			
-			/*if (collection.Count == 3)
-			{
-				lvShowCar.Items.Clear();
-				m.Remove();
-			}*/
-
+			}
+		public ListView GetList()
+		{
+			return this.lvShowCar;
 		}
-
-
-
-
 	}
 }

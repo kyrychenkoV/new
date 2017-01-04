@@ -31,9 +31,8 @@ namespace FormCar
 				m.SubItems.Add(number.modelCar);
 				m.SubItems.Add(number.releaseYear);
 				m.SubItems.Add(number.cost);
-
 			}
-			}
+		}
 		public ListView GetList()
 		{
 			return this.lvShowCar;

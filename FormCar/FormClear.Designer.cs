@@ -70,7 +70,7 @@
 			this.Controls.Add(this.cbDeleteCar);
 			this.Name = "FormClear";
 			this.Text = "FormClear";
-			this.Load += new System.EventHandler(this.FormClear_Load);
+			//this.Load += new System.EventHandler(this.FormClear_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

@@ -15,13 +15,9 @@ namespace FormCar
 		public FormCreateCar()
 		{
 			InitializeComponent();
-			tbCost.Text = "5";
-			tbModelCar.Text = "6";
-			//btOk.Enabled = false;
-
-
+			btOk.Enabled = false;
 		}
-		
+		bool flag = false;
 
 		public string GetTextBoxBrandCar => tbBrandCar.Text;
 
@@ -31,35 +27,63 @@ namespace FormCar
 
 		public string GetTextBoxtbtbCost => tbCost.Text;
 
-		private void tbBrandCar_TextChanged(object sender, EventArgs e)
+		private void tbBrandCar_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			
+			if (!char.IsDigit(e.KeyChar))
+			{
+				return;
+			}
+			e.Handled = true;
+			ChangeFocus(sender, e, tbModelCar);
 		}
 
-		
-
-		private void tbRelaseYear_TextChanged(object sender, EventArgs e)
+		private void tbModelCar_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			
+			ChangeFocus(sender, e, tbRelaseYear);
 		}
 
-		private void textBox4_TextChanged(object sender, EventArgs e)
+		private void tbRelaseYear_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if ((tbBrandCar.Text.Length == 0) || (tbModelCar.Text.Length == 0) ||
-					(tbRelaseYear.Text.Length == 0) || (tbCost.Text.Length == 0))
+			tbRelaseYear.MaxLength = 4;
+			if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
 			{
-				btOk.Enabled = false;
+				return;
 			}
-			else
+			ChangeFocus(sender, e, tbCost);
+			e.Handled = true;
+		}
+
+		private void tbCost_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
 			{
-				btOk.Enabled = true;
+				return;
 			}
 
+			ChangeFocus(sender, e, btOk);
+			e.Handled = true;
+		}
+		private void ChangeFocus(object sender, KeyPressEventArgs e, Control nameControl)
+		{
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				nameControl.Focus();
+			}
+		}
+
+		private void tbCost_TextChanged(object sender, EventArgs e)
+		{
+			ActivOkButton();
 		}
 
 		private void btOkCreateCar_Click(object sender, EventArgs e)
 		{
+			flag = true;
 			this.Close();
+		}
+		public bool ButtonClick()
+		{
+			return flag;
 		}
 
 		private void btClear_Click(object sender, EventArgs e)
@@ -69,35 +93,43 @@ namespace FormCar
 			this.tbRelaseYear.Clear();
 			this.tbCost.Clear();
 		}
-		 private void tbRelaseYear_KeyPress(object sender, KeyPressEventArgs e)
-		 {
-			 tbRelaseYear.MaxLength = 4;
-			 if ((e.KeyChar >= '0') && (e.KeyChar <= '9'))
-			 {
-				 return;
-			 }
-			 if (Char.IsControl(e.KeyChar))
-			 {
-				 if (e.KeyChar == (char) Keys.Enter)
-				 {
-					 tbCost.Focus();
-				 }
-			 }
-			 e.Handled=true;
 
-		 }
-
-		/*public bool  ActivityOkButton()
+		public bool ActivOkButton()
 		{
-			if (tbBrandCar.Text.Length == 0 || tbModelCar.Text.Length == 0 ||
-			    tbRelaseYear.Text.Length == 0 || tbCost.Text.Length == 0)
+			if (tbBrandCar.Text.Length > 0 && tbModelCar.Text.Length > 0 &&
+					tbRelaseYear.Text.Length > 0 && tbCost.Text.Length > 0)
 			{
-				return false;
+				if (CurrentDate())
+				{
+					btOk.Enabled = true;
+					return true;
+				}
 			}
-			else
+			btOk.Enabled = false;
+			return false;
+		}
+
+
+		private bool CurrentDate()
+		{
+			DateTime currentYear = DateTime.Now;
+			try
 			{
-				return true;
+				if (currentYear.Year >= Int32.Parse(tbRelaseYear.Text))
+				{
+					return true;
+				}
 			}
-		}*/
+			catch (Exception a)
+			{
+				MessageBox.Show(a.ToString());
+			}
+			MessageBox.Show("Input correct year");
+			tbRelaseYear.Focus();
+			return false;
+		}
 	}
 }
+
+
+

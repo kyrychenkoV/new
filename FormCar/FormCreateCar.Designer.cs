@@ -55,7 +55,8 @@
 			this.tbBrandCar.Name = "tbBrandCar";
 			this.tbBrandCar.Size = new System.Drawing.Size(100, 20);
 			this.tbBrandCar.TabIndex = 1;
-			this.tbBrandCar.TextChanged += new System.EventHandler(this.tbBrandCar_TextChanged);
+			//this.tbBrandCar.TextChanged += new System.EventHandler(this.tbBrandCar_TextChanged);
+			this.tbBrandCar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbBrandCar_KeyPress);
 			// 
 			// tbModelCar
 			// 
@@ -63,7 +64,7 @@
 			this.tbModelCar.Name = "tbModelCar";
 			this.tbModelCar.Size = new System.Drawing.Size(100, 20);
 			this.tbModelCar.TabIndex = 3;
-			
+			this.tbModelCar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbModelCar_KeyPress);
 			// 
 			// lbModelCar
 			// 
@@ -80,7 +81,7 @@
 			this.tbRelaseYear.Name = "tbRelaseYear";
 			this.tbRelaseYear.Size = new System.Drawing.Size(100, 20);
 			this.tbRelaseYear.TabIndex = 5;
-			this.tbRelaseYear.TextChanged += new System.EventHandler(this.tbRelaseYear_TextChanged);
+			//this.tbRelaseYear.TextChanged += new System.EventHandler(this.tbRelaseYear_TextChanged);
 			this.tbRelaseYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRelaseYear_KeyPress);
 			// 
 			// label2
@@ -98,7 +99,8 @@
 			this.tbCost.Name = "tbCost";
 			this.tbCost.Size = new System.Drawing.Size(100, 20);
 			this.tbCost.TabIndex = 7;
-			this.tbCost.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+			this.tbCost.TextChanged += new System.EventHandler(this.tbCost_TextChanged);
+			this.tbCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCost_KeyPress);
 			// 
 			// label3
 			// 

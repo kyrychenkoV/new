@@ -45,9 +45,9 @@
             this.chYear,
             this.chCost});
 			this.lvShowCar.GridLines = true;
-			this.lvShowCar.Location = new System.Drawing.Point(13, 13);
+			this.lvShowCar.Location = new System.Drawing.Point(12, 12);
 			this.lvShowCar.Name = "lvShowCar";
-			this.lvShowCar.Size = new System.Drawing.Size(363, 274);
+			this.lvShowCar.Size = new System.Drawing.Size(503, 274);
 			this.lvShowCar.TabIndex = 0;
 			this.lvShowCar.UseCompatibleStateImageBehavior = false;
 			this.lvShowCar.View = System.Windows.Forms.View.Details;
@@ -65,6 +65,7 @@
 			// chModelCar
 			// 
 			this.chModelCar.Text = "Модель";
+			this.chModelCar.Width = 129;
 			// 
 			// chYear
 			// 
@@ -74,13 +75,13 @@
 			// chCost
 			// 
 			this.chCost.Text = "Стоимость";
-			this.chCost.Width = 76;
+			this.chCost.Width = 133;
 			// 
 			// FormListView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(390, 298);
+			this.ClientSize = new System.Drawing.Size(527, 329);
 			this.Controls.Add(this.lvShowCar);
 			this.Name = "FormListView";
 			this.Text = "ListView";
